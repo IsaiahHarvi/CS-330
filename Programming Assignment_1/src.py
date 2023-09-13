@@ -13,12 +13,12 @@ def magnitude(vector):
 
 # Function to normalize a 2D vector
 def normalize(vector): 
-    vectorMagnitude = magnitude(vector)
+    vectorMagnitude = np.linalg.norm(vector)
 
     if vectorMagnitude:
         return vector / vectorMagnitude
     else:
-        return np.array([0, 0])
+        return np.array([0, 0], dtype=np.float64)
 
 # Calculate the dot product of two 2D vectors
 def dotProduct(vector1, vector2):
@@ -30,26 +30,26 @@ def orientationToVector(orientation):
 
 # Calculate distance between two 2D points
 def distancePntToPnt(A, B):
-    return magnitude(np.subtract(B, A))
+    return np.linalg.norm(np.subtract(B, A))
 
 # Calculate the distance from a point to a line in 2D.
 def distanceToLine(point, linePoint1, linePoint2):
-    point, linePoint1, linePoint2 = np.array(point), np.array(linePoint1), np.array(linePoint2)
+    point, linePoint1, linePoint2 = np.array(point, dtype=np.float64), np.array(linePoint1, dtype=np.float64), np.array(linePoint2, dtype=np.float64)
     numerator = abs(((linePoint2[0] - linePoint1[0]) * (linePoint1[1] - point[1])) - 
                     ((linePoint1[0] - point[0]) * (linePoint2[1] - linePoint1[1])))
-    denominator = magnitude(linePoint2 - linePoint1)
+    denominator = np.linalg.norm(linePoint2 - linePoint1)
    
     return numerator / denominator
 
 # Find point on line closest to query point in 2D.
 def closestPointLine(Q, A, B): # Q is Point, A and B are distinct points on the line, as vectors.
-    Q, A, B = np.array(Q), np.array(A), np.array(B)
+    Q, A, B = np.array(Q, dtype=np.float64), np.array(A, dtype=np.float64), np.array(B, dtype=np.float64)
     T = np.dot(Q - A, B - A) / np.dot(B - A, B - A)
     return A + T * (B - A)
 
 # Find point on segment closest to query point in 2D.
 def closestPointSegment(Q, A, B): 
-    Q, A, B = np.array(Q), np.array(A), np.array(B)
+    Q, A, B = np.array(Q, dtype=np.float64), np.array(A, dtype=np.float64), np.array(B, dtype=np.float64)
     T = np.dot(Q - A, B - A) / np.dot(B - A, B - A)
     
     if T < 0:
@@ -99,8 +99,8 @@ def createPath(pathID, path_x, path_y):
 def getPathPosition(path, param):
     i = np.max(np.where(param > path['param'])[0])
     
-    A = np.array([path['x'][i], path['y'][i]])
-    B = np.array([path['x'][i + 1], path['y'][i + 1]])
+    A = np.array([path['x'][i], path['y'][i]], dtype=np.float64)
+    B = np.array([path['x'][i + 1], path['y'][i + 1]], dtype=np.float64)
     
     T = (param - path['param'][i]) / (path['param'][i + 1] - path['param'][i])
     
@@ -114,8 +114,8 @@ def getPathParam(path, position):
     position = np.array(position)
     
     for i in range(path['segments']):
-        A = np.array([path['x'][i], path['y'][i]])
-        B = np.array([path['x'][i + 1], path['y'][i + 1]])
+        A = np.array([path['x'][i], path['y'][i]], dtype=np.float64)
+        B = np.array([path['x'][i + 1], path['y'][i + 1]], dtype=np.float64)
         
         checkPoint = closestPointSegment(position, A, B)
         checkDistance = distancePntToPnt(position, checkPoint)
@@ -126,9 +126,9 @@ def getPathParam(path, position):
             closestSegment = i
             
     # Calculate path parameter of closest point
-    A = np.array([path['x'][closestSegment], path['y'][closestSegment]])
+    A = np.array([path['x'][closestSegment], path['y'][closestSegment]], dtype=np.float64)
     A_param = path['param'][closestSegment]
-    B = np.array([path['x'][closestSegment + 1], path['y'][closestSegment + 1]])
+    B = np.array([path['x'][closestSegment + 1], path['y'][closestSegment + 1]], dtype=np.float64)
     B_param = path['param'][closestSegment + 1]
     C = closest_point
     T = magnitude(C - A) / magnitude(B - A)
@@ -143,8 +143,8 @@ def getPathParam(path, position):
 # If relative velocity d.v is 0, characters are not approaching each other and will not collide.
 
 def closest_approach(A_position, A_velocity, B_position, B_velocity):
-    A_position, A_velocity = np.array(A_position), np.array(A_velocity)
-    B_position, B_velocity = np.array(B_position), np.array(B_velocity)
+    A_position, A_velocity = np.array(A_position, dtype=np.float64), np.array(A_velocity, dtype=np.float64)
+    B_position, B_velocity = np.array(B_position, dtype=np.float64), np.array(B_velocity, dtype=np.float64)
     
     d_p = B_position - A_position
     d_v = B_velocity - A_velocity

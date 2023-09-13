@@ -64,9 +64,9 @@ stop_velocity = 0.02
 character0 = {
     "id": 0,
     "steer": STOP,
-    "position": np.array([0, 0]),
-    "velocity": np.array([0, 0]),
-    "linear": np.array([0, 0]),
+    "position": np.array([0, 0], dtype=np.float64),
+    "velocity": np.array([0, 0], dtype=np.float64),
+    "linear": np.array([0, 0], dtype=np.float64),
     "orientation": 0,
     "rotation": 0,
     "angular": 0,
@@ -94,15 +94,12 @@ character0 = {
     "path_offset": 0,
     "sep_decay": 0,
     "sep_threshold": 0,
-    "swirl_scale": np.array([0, 0])
+    "swirl_scale": np.array([0, 0], dtype=np.float64)
 }
 
 # Initialize scenario-specific variables, including characters, targets, and paths.
 if (scenario == 26):
     import math
-
-    # Define a template character
-    character_0 = {}
 
     # Create character instances
     character_26_01 = character0.copy()
@@ -112,32 +109,32 @@ if (scenario == 26):
     character_26_02 = character0.copy()
     character_26_02['id'] = 2602
     character_26_02['steer'] = FLEE
-    character_26_02['position'] = np.array([-30, -50])  # Initialize as numpy array
-    character_26_02['velocity'] = np.array([2, 7])   
+    character_26_02['position'] = np.array([-30, -50], dtype=np.float64)
+    character_26_02['velocity'] = np.array([2, 7], dtype=np.float64)   
     character_26_02['orientation'] = math.pi / 4
     character_26_02['max_velocity'] = 8
     character_26_02['max_linear'] = 1.5
-    character_26_02['target'] = 1
+    character_26_02['target'] = character_26_01
 
     character_26_03 = character0.copy()
     character_26_03['id'] = 2603
     character_26_03['steer'] = SEEK
-    character_26_03['position'] = np.array([-50, 40])   # Initialize as numpy array
-    character_26_03['velocity'] = np.array([0, 8])
-    character_26_03['orientation'] = 3 * math.pi / 2
+    character_26_03['position'] = np.array([-50, 40], dtype=np.float64)
+    character_26_03['velocity'] = np.array([0, 8], dtype=np.float64)
+    character_26_03['orientation'] = (3 * math.pi) / 2
     character_26_03['max_velocity'] = 8
     character_26_03['max_linear'] = 2
-    character_26_03['target'] = 1
+    character_26_03['target'] = character_26_01
 
     character_26_04 = character0.copy()
     character_26_04['id'] = 2604
     character_26_04['steer'] = ARRIVE
-    character_26_04['position'] = np.array([50, 75])    # Initialize as numpy array
-    character_26_04['velocity'] = np.array([-9, 4]) 
+    character_26_04['position'] = np.array([50, 75], dtype=np.float64)
+    character_26_04['velocity'] = np.array([-9, 4], dtype=np.float64) 
     character_26_04['orientation'] = math.pi
     character_26_04['max_velocity'] = 10
     character_26_04['max_linear'] = 2
-    character_26_04['target'] = 1
+    character_26_04['target'] = character_26_01
     character_26_04['arrive_radius'] = 4
     character_26_04['arrive_slow'] = 32
     character_26_04['arrive_time'] = 1

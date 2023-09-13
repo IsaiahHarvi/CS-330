@@ -108,9 +108,9 @@ for line in lines: # Reading through input file line by line
 for ID in characters:
     character = characters[ID]
 
-    character.plotPosition()  if plot_what['position'] == True else None
-    character.plotVelocity() if plot_what['velocity'] == True else None
     character.plotLinear() if plot_what['linear'] == True else None
+    character.plotVelocity() if plot_what['velocity'] == True else None
+    character.plotPosition()  if plot_what['position'] == True else None
 
 
 plt.gca().invert_yaxis()

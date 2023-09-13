@@ -142,6 +142,14 @@ def dynamic_update(mover, steering, delta_time, physics, warnings=False, scenari
     return mover
 
 def write_trajectory(character, time, trajectory_file):
+    # Verifying the data
+    if np.isnan(character['position']).any():
+        print("NaN detected in position:", character['position'])
+    if np.isnan(character['velocity']).any():
+        print("NaN detected in velocity:", character['velocity'])
+    if np.isnan(character['linear']).any():
+        print("NaN detected in linear:", character['linear'])
+  
     char_out = f"{time},{character['id']},{character['position'][0]},{character['position'][1]},{character['velocity'][0]},{character['velocity'][1]},{character['linear'][0]},{character['linear'][1]},{character['orientation']},{character['steer']},{character['col_collided']}"
     with open(trajectory_file, 'a') as file:
         file.write(char_out + "\n")
@@ -162,14 +170,14 @@ while Time < stop_time:
         elif Character[i]['steer'] == STOP:
             steering = dynamic_get_steering_stop(Character[i])
         elif Character[i]['steer'] == SEEK:
-            steering = dynamic_get_steering_seek(Character[i], Character[Character[i]['target']])
+            steering = dynamic_get_steering_seek(Character[i], Character[i]['target'])
         elif Character[i]['steer'] == FLEE:
-            steering = dynamic_get_steering_flee(Character[i], Character[Character[i]['target']])
+            steering = dynamic_get_steering_flee(Character[i], Character[i]['target'])
         elif Character[i]['steer'] == ARRIVE:
-            steering = dynamic_get_steering_arrive(Character[i], Character[Character[i]['target']])
+            steering = dynamic_get_steering_arrive(Character[i], Character[i]['target'])
 
         # Update the character's movement variables.
-        Character[i] = dynamic_update(Character[i], steering, delta_time, physics, warnings=True, scenario=29)
+        Character[i] = dynamic_update(Character[i], steering, delta_time, physics, warnings=False, scenario=29)
 
     # Check whether any characters have collided; if so, immediately stop both.
     if check_collisions:

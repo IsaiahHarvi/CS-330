@@ -153,3 +153,4 @@ cython_debug/
 
 R_Examples/
 examplePlot.png
+*.zip

@@ -47,13 +47,6 @@ def dynamic_get_steering_seek(mover, target):
     direction = target['position'] - mover['position']
     result['linear'] = normalize(direction) * mover['max_linear']
     
-    #mag_dir = magnitude(direction)
-    #if mag_dir == 0:
-    #    normalized_dir = direction
-    #else:
-    #    normalized_dir = direction / mag_dir
-    #result['linear'] = normalized_dir * mover['max_linear']
-    
     return result
 
 # Flee; move away from target.
@@ -62,13 +55,6 @@ def dynamic_get_steering_flee(mover, target):
     direction = mover['position'] - target['position']
     result['linear'] = normalize(direction) * mover['max_linear']
    
-    #mag_dir = magnitude(direction)
-    #if mag_dir == 0:
-    #    normalized_dir = direction
-    #else:
-    #    normalized_dir = direction / magnitude(direction)
-    #result['linear'] = normalized_dir * mover['max_linear']
-    
     return result
 
 # Arrive; move toward target, slowing as distance decreases.

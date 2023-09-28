@@ -148,7 +148,7 @@ for char in Character:
 # Calculate trajectory, timestep by timestep.
 while Time < stop_time:
     Time += delta_time
-
+ 
     for i in range(len(Character)):
         # Select and call a steering behavior.
         if Character[i]['steer'] == CONTINUE:

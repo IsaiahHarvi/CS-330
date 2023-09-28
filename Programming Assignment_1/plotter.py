@@ -5,7 +5,7 @@ from Init import plot_what
 # Created by Joshua Payne
 # Updated by Isaiah Harville on 9/9/2023
 
-inFileName = 'Trajectory_Data.txt' # Change to any file name, if left empty the user will be prompted for the file name upon execution
+inFileName = '' #Change to any file name, if left empty the user will be prompted for the file name upon execution
 
 class Character:
     def __init__(self, steerType):

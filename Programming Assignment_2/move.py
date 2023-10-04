@@ -3,7 +3,6 @@
 
 import numpy as np
 from Init import *
-from src import * 
 
 # Define dynamic movement functions, aka steering behaviors.
 
@@ -80,6 +79,14 @@ def dynamic_get_steering_arrive(mover, target):
         result['linear'] = normalize(result['linear']) * mover['max_linear']
     
     return result
+
+def dynamic_get_steering_follow_path(mover, path):
+    current_param = getPathParam(path, mover['position'])
+    target_param = min(1, current_param + mover['path_offset'])
+    target_position = getPathPosition(path, target_param)
+    target = {'position': target_position}
+    return dynamic_get_steering_seek(mover, target)
+
 
 
 ## Dynamic Update ##
@@ -164,6 +171,9 @@ while Time < stop_time:
             steering = dynamic_get_steering_flee(Character[i], Character[i]['target'])
         elif Character[i]['steer'] == ARRIVE:
             steering = dynamic_get_steering_arrive(Character[i], Character[i]['target'])
+        elif Character[i]['steer'] == FOLLOW_PATH:
+            pathToFollow = Character[i]['path_to_follow']
+            steering = dynamic_get_steering_follow_path(Character[i], Path[pathToFollow-1])
 
         # Update the character's movement variables.
         Character[i] = dynamic_update(Character[i], steering, delta_time, physics, warnings=False, scenario=29)

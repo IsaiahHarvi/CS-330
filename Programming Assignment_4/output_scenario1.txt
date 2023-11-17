@@ -1,0 +1,8 @@
+scenario                = 1
+trace                   = True
+iterations              = 100
+transition probabilities= 0.8 0.4 0.3 0.4 0.3 0.3 0.8 0.8 0.8
+state counts            = 1030 822 326 126 926 0 100
+state frequencies       = 0.309 0.247 0.098 0.038 0.278 0.000 0.030
+transition counts       = 822 326 596 226 0 0 722 0 100
+transition frequencies  = 0.294 0.117 0.213 0.081 0.000 0.000 0.259 0.000 0.036

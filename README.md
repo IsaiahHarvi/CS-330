@@ -7,6 +7,8 @@ Welcome to the repository for CS 330, an Artificial Intelligence Algorithm class
 - [Getting Started](#getting-started)
 - [Programming Assignment 1](#programming-assignment-1)
 - [Programming Assignment 2](#programming-assignment-2)
+- [Programming Assignment 3](#programming-assignment-3)
+- [Programming Assignment 4](#programming-assignment-4)
 - [License](#license)
 
 ## Getting Started
@@ -42,6 +44,29 @@ Before diving into individual assignments, ensure that you have the necessary pr
 **Usage**:
 1. Navigate to the directory: `cd Programming Assignment_2`
 2. Execute the main file: `python main.py`
+
+## Programming Assignment 3
+
+**Directory**: [Programming Assignment_2](./Programming%20Assignment_2/Programming Assignment_2/)
+
+- Implementing path-finding algorithms.
+- Making an AI agent follow specific paths.
+
+**Usage**:
+1. Navigate to the directory: `cd Programming Assignment_3`
+2. Execute the main file: `python main.py`
+
+## Programming Assignment 4
+
+**Directory**: [Programming Assignment_2](./Programming%20Assignment_2/Programming Assignment_2/)
+
+- Implementing path-finding algorithms.
+- Making an AI agent follow specific paths.
+
+**Usage**:
+1. Navigate to the directory: `cd Programming Assignment_2`
+2. Execute the main file: `python main.py`
+
 
 ## License
 

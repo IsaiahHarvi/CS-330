@@ -21,9 +21,6 @@ Before diving into individual assignments, ensure that you have the necessary pr
 - Numpy
 
 ## Programming Assignment 1
-
-**Directory**: [Programming Assignment_1](./Programming%20Assignment_1/Programming\ Assignment_1)
-
 **Description**: This assignment is centered around implementing basic AI movement functions.
 
 - Basic move functionality.
@@ -33,9 +30,6 @@ Before diving into individual assignments, ensure that you have the necessary pr
 2. Execute the main file: `python main.py`
 
 ## Programming Assignment 2
-
-**Directory**: [Programming Assignment_2](./Programming%20Assignment_2/Programming Assignment_2/)
-
 **Description**: This assignment deals with path following mechanisms:
 
 - Implementing path-finding algorithms.
@@ -46,9 +40,6 @@ Before diving into individual assignments, ensure that you have the necessary pr
 2. Execute the main file: `python main.py`
 
 ## Programming Assignment 3
-
-**Directory**: [Programming Assignment_2](./Programming%20Assignment_2/Programming Assignment_2/)
-
 - Implementing path-finding algorithms.
 - Making an AI agent follow specific paths.
 
@@ -57,9 +48,6 @@ Before diving into individual assignments, ensure that you have the necessary pr
 2. Execute the main file: `python main.py`
 
 ## Programming Assignment 4
-
-**Directory**: [Programming Assignment_2](./Programming%20Assignment_2/Programming Assignment_2/)
-
 - Implementing path-finding algorithms.
 - Making an AI agent follow specific paths.
 

@@ -2,6 +2,11 @@
 
 Welcome to the repository for CS 330, an Artificial Intelligence Algorithm class. This repository contains all programming assignments and related work I completed during the course.
 
+## Viewing Only
+Please note that all materials in this repository are available for viewing only. No redistribution, copying, or use of this material is permitted beyond viewing here on GitHub. These materials are provided to showcase the coursework and should not be used directly in any other projects or assignments.
+
+THIS WORK IS NOT TO BE REDISTRIBUTED OR USED BEYOND VIEWING.
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -9,11 +14,8 @@ Welcome to the repository for CS 330, an Artificial Intelligence Algorithm class
 - [Programming Assignment 2](#programming-assignment-2)
 - [Programming Assignment 3](#programming-assignment-3)
 - [Programming Assignment 4](#programming-assignment-4)
-- [License](#license)
 
-## Getting Started
 
-Before diving into individual assignments, ensure that you have the necessary prerequisites installed on your system. More specific setup instructions may be available inside individual assignment folders.
 
 ### Prerequisites
 
@@ -56,11 +58,9 @@ Before diving into individual assignments, ensure that you have the necessary pr
 2. Execute the main file: `python main.py`
 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
 ## Acknowledgments
 
 - Jason Sebastian: For insightful lectures and guidance.
 - UAH: For providing the course and resources.
+
+THIS WORK IS NOT TO BE REDISTRIBUTED OR USED BEYOND VIEWING.
